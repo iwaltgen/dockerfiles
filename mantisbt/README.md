@@ -10,8 +10,8 @@
     links:
       - postgres
     volumes:
-      - ./data/mantis/config:/var/lib/www/html/config
-      - ./data/mantis/custom:/var/lib/www/html/custom
+      - ./data/mantis/config:/var/www/html/config
+      - ./data/mantis/custom:/var/www/html/custom
     restart: always
 
   postgres:
@@ -30,7 +30,7 @@
 ## install
 
 ```
-$ firefox http://localhost:8989/admin/install.php
+$ open http://localhost:8989/admin/install.php
 >>> username: administrator
 >>> password: root
 ```
@@ -53,7 +53,7 @@ Attempt Installation                                    [Install/Upgrade Databas
 
 ## email
 
-Append following to `/var/lib/www/html/config/config_inc.php`
+Append following to `/var/www/html/config/config_inc.php`
 
 ```
 $g_phpMailer_method = PHPMAILER_METHOD_SMTP;
@@ -62,7 +62,7 @@ $g_webmaster_email = 'mantisbt@example.org';
 $g_return_path_email = 'mantisbt@example.org';
 $g_from_email = 'mantisbt@example.org';
 $g_smtp_host = 'smtp.example.org';
-$g_smtp_port = 25;
+$g_smtp_port = 587;
 $g_smtp_connection_mode = 'tls';
 $g_smtp_username = 'mantisbt';
 $g_smtp_password = '********';
