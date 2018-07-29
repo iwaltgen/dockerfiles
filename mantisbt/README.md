@@ -3,6 +3,8 @@
 ## docker-compose.yml
 
 ```
+version: '3'
+services:
   mantisbt:
     image: iwaltgen/mantisbt
     ports:
@@ -33,9 +35,7 @@
 $ open http://localhost:8989/admin/install.php
 >>> username: administrator
 >>> password: root
-```
 
-```
 ==================================================================================
 Installation Options
 ==================================================================================
@@ -51,9 +51,11 @@ Attempt Installation                                    [Install/Upgrade Databas
 ==================================================================================
 ```
 
+> generated `./data/mantis/config/config_inc.php`
+
 ## email
 
-Append following to `/var/www/html/config/config_inc.php`
+Append following to `./data/mantis/config/config_inc.php`
 
 ```
 $g_phpMailer_method = PHPMAILER_METHOD_SMTP;

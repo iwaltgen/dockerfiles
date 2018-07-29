@@ -9,8 +9,8 @@ services:
     links:
       - postgres
     volumes:
-      - ./data/mantis/config:/var/lib/www/html/config
-      - ./data/mantis/custom:/var/lib/www/html/custom
+      - ./data/mantis/config:/var/www/html/config
+      - ./data/mantis/custom:/var/www/html/custom
     restart: always
 
   postgres:
