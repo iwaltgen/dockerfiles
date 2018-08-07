@@ -1,0 +1,40 @@
+version: '3.6'
+services:
+
+  registry:
+    restart: always
+    image: registry:2
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: 'true'
+    volumes:
+      - ./data/registry:/var/lib/registry
+    network_mode: host
+
+  registry-web:
+    image: snagles/docker-registry-manager
+    environment:
+      - MANAGER_PORT=5001
+      - MANAGER_REGISTRIES=/app/registries.yml
+      - MANAGER_LOG_LEVEL=warn
+    volumes:
+      - ./registries.yml:/app/registries.yml
+    depends_on:
+      - core
+    network_mode: host
+
+  portainer:
+    image: portainer/portainer
+    command: ["-p", ":80", "-H", "unix:///var/run/docker.sock", "--admin-password", "$$2y$$12$$AydHBnAs7lqSxpI3LenOdeoeqWi4WfEIn4U6WJBOqUDSxiVA8ls7a"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/portainer:/data
+    network_mode: host
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    environment:
+      - JENKINS_OPTS=--httpPort=5050 --httpsPort=-1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/jenkins:/var/jenkins_home
+    network_mode: host
