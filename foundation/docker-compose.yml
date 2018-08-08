@@ -31,7 +31,7 @@ services:
     network_mode: host
 
   jenkins:
-    image: jenkins/jenkins:lts
+    image: iwaltgen/jenkins-dind
     environment:
       - JENKINS_OPTS=--httpPort=5050 --httpsPort=-1
     volumes:
