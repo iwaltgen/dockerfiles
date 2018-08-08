@@ -16,7 +16,7 @@ RUN apt-get update \
  && chmod +x /usr/local/bin/gosu \
  && gosu nobody true \
  && curl -sSL https://get.docker.com/ | sh \
- && curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
+ && curl -sSL https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
  && chmod +x /usr/local/bin/docker-compose \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
