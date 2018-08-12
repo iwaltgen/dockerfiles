@@ -11,6 +11,7 @@ services:
     network_mode: host
 
   registry-web:
+    restart: always
     image: snagles/docker-registry-manager
     environment:
       - MANAGER_PORT=5001
@@ -19,10 +20,11 @@ services:
     volumes:
       - ./registries.yml:/app/registries.yml
     depends_on:
-      - core
+      - registry
     network_mode: host
 
   portainer:
+    restart: always
     image: portainer/portainer
     command: ["-p", ":80", "-H", "unix:///var/run/docker.sock", "--admin-password", "$$2y$$12$$AydHBnAs7lqSxpI3LenOdeoeqWi4WfEIn4U6WJBOqUDSxiVA8ls7a"]
     volumes:
@@ -31,9 +33,11 @@ services:
     network_mode: host
 
   jenkins:
+    restart: always
     image: iwaltgen/jenkins-dind
+    privileged: true
     environment:
-      - JENKINS_OPTS=--httpPort=5050 --httpsPort=-1
+      - JENKINS_OPTS=--httpPort=5050 --httpsPort=5051
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data/jenkins:/var/jenkins_home
