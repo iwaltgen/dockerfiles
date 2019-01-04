@@ -1,6 +1,5 @@
 # Dockerfile for redis-with-ruby-tool
-
-FROM redis
+FROM redis:4
 
 ENV DEBIAN_FRONTEND noninteractive
 
