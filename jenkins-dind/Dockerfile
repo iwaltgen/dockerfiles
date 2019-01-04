@@ -1,4 +1,5 @@
-# jenkins:lts 2.150.1
+
+# Dockerfile for jenkins-dind [jenkins:lts - v2.150.1]
 FROM jenkins/jenkins:lts
 
 ARG GOSU_VERSION=1.10
