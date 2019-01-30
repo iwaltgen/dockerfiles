@@ -17,6 +17,8 @@ RUN apt-get update \
  && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
  && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" \
  && chmod +x /usr/local/bin/gosu \
+ && wget -O /usr/local/bin/mc https://dl.minio.io/client/mc/release/linux-amd64/mc \
+ && chmod +x /usr/local/bin/mc \
  && gosu nobody true \
  && curl -sSL https://get.docker.com/ | sh \
  && curl -sSL https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
