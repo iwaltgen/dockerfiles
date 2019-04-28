@@ -1,6 +1,7 @@
 version: '3.6'
 services:
 
+  # TODO(iwaltgen): minio, drone, (registry s3 적용?) 으로 수정하자.
   registry:
     restart: always
     image: registry:2
