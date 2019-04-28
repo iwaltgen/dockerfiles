@@ -1,8 +1,10 @@
+# mantisbt
+
 `MantisBT` is an open source issue tracker that provides a delicate balance between simplicity and power.
 
 ## docker-compose.yml
 
-```
+```yaml
 version: '3'
 services:
   mantisbt:
@@ -31,7 +33,7 @@ services:
 
 ## install
 
-```
+```sh
 $ open http://localhost:8989/admin/install.php
 >>> username: administrator
 >>> password: root
@@ -57,7 +59,7 @@ Attempt Installation                                    [Install/Upgrade Databas
 
 Append following to `./data/mantis/config/config_inc.php`
 
-```
+```php
 $g_phpMailer_method = PHPMAILER_METHOD_SMTP;
 $g_administrator_email = 'mantisbt@example.org';
 $g_webmaster_email = 'mantisbt@example.org';
