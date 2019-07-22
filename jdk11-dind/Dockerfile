@@ -16,3 +16,5 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361
     apt-get -qq update && \
     apt-get -qqy install zulu-11 && \
     rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME /usr/lib/jvm/zulu-11-amd64
