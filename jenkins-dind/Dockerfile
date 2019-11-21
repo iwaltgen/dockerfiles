@@ -1,4 +1,3 @@
-
 # Dockerfile for jenkins-dind [jenkins:lts - v2.164.2]
 FROM jenkins/jenkins:lts
 
