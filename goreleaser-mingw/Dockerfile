@@ -68,9 +68,4 @@ WORKDIR $GOPATH
 RUN curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
 
 WORKDIR /workspace
-
-ENTRYPOINT ["/entrypoint.sh"]
-CMD [ "-h" ]
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+CMD [ "goreleaser" ]
