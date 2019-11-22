@@ -65,12 +65,10 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
-# ENTRYPOINT ["/entrypoint.sh"]
-# CMD [ "-h" ]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD [ "-h" ]
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 RUN curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
-
-CMD /bin/bash
