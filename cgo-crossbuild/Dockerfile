@@ -3,12 +3,17 @@ FROM buildpack-deps:buster-scm
 
 # gcc for cgo
 RUN apt-get update && apt-get install -y --no-install-recommends \
+		clang \
 		g++ \
 		gcc \
 		libc6-dev \
 		make \
 		pkg-config \
 		llvm \
+		zlib1g-dev \
+		libmpc-dev \
+		libmpfr-dev \
+		libgmp-dev \
 		mingw-w64 \
 	&& rm -rf /var/lib/apt/lists/*
 
