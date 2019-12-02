@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		g++ \
 		gcc \
 		libc6-dev \
+		upx \
 		make \
 		pkg-config \
 		mingw-w64 \
