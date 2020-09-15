@@ -18,7 +18,7 @@ jobs:
           image: iwaltgen/cgo-mingw
           registry: ghcr.io
           tag: latest
-          directory: cgo-mingw
+          dockerfile: cgo-mingw/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -28,7 +28,7 @@ jobs:
           image: iwaltgen/golang-dind
           registry: ghcr.io
           tag: latest
-          directory: golang-dind
+          dockerfile: golang-dind/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -38,7 +38,7 @@ jobs:
           image: iwaltgen/jdk11-dind
           registry: ghcr.io
           tag: latest
-          directory: jdk11-dind
+          dockerfile: jdk11-dind/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -48,7 +48,7 @@ jobs:
           image: iwaltgen/jenkins-dind
           registry: ghcr.io
           tag: latest
-          directory: jenkins-dind
+          dockerfile: jenkins-dind/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -58,7 +58,7 @@ jobs:
           image: iwaltgen/mantisbt
           registry: ghcr.io
           tag: latest
-          directory: mantisbt
+          dockerfile: mantisbt/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -68,6 +68,6 @@ jobs:
           image: iwaltgen/prototool
           registry: ghcr.io
           tag: latest
-          directory: prototool
+          dockerfile: prototool/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
