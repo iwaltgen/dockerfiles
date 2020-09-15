@@ -1,0 +1,73 @@
+name: build
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: build cgo-mingw
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/cgo-mingw
+          registry: ghcr.io
+          tag: latest
+          directory: cgo-mingw
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build golang-dind
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/golang-dind
+          registry: ghcr.io
+          tag: latest
+          directory: golang-dind
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build jdk11-dind
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/jdk11-dind
+          registry: ghcr.io
+          tag: latest
+          directory: jdk11-dind
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build jenkins-dind
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/jenkins-dind
+          registry: ghcr.io
+          tag: latest
+          directory: jenkins-dind
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build mantisbt
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/mantisbt
+          registry: ghcr.io
+          tag: latest
+          directory: mantisbt
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build prototool
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/prototool
+          registry: ghcr.io
+          tag: latest
+          directory: prototool
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
