@@ -49,6 +49,7 @@ jobs:
           registry: ghcr.io
           tag: latest
           dockerfile: jenkins-dind/Dockerfile
+          directory: jenkins-dind
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
