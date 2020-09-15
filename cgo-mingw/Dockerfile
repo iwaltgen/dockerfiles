@@ -1,5 +1,7 @@
 FROM buildpack-deps:buster-scm
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 # gcc for cgo
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		g++ \

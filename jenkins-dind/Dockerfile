@@ -1,6 +1,8 @@
 # Dockerfile for jenkins-dind [jenkins:lts - v2.164.2]
 FROM jenkins/jenkins:lts
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 ARG GOSU_VERSION=1.10
 ARG DOCKER_COMPOSE_VERSION=1.21.2
 

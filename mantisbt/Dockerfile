@@ -1,6 +1,8 @@
 # Dockerfile for mantisbt
 FROM php:5.6-apache
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 RUN a2enmod rewrite
 
 RUN set -xe \

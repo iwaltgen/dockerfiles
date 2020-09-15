@@ -12,6 +12,8 @@ RUN upx --lzma /usr/local/bin/*
 
 FROM uber/prototool
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 COPY --from=builder /usr/local/bin /usr/local/bin
 
 ENV PGV_VERSION=0.1.0

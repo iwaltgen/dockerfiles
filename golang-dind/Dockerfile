@@ -1,5 +1,7 @@
 FROM docker:dind
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 RUN apk add --no-cache \
 		ca-certificates
 

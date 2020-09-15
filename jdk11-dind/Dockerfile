@@ -1,5 +1,7 @@
 FROM jpetazzo/dind
 
+LABEL org.opencontainers.image.source https://github.com/iwaltgen/dockerfiles
+
 # UTF-8 by default
 RUN apt-get -qq update && \
     apt-get -qqy install gnupg2 locales && \
