@@ -72,3 +72,13 @@ jobs:
           dockerfile: prototool/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: build minio/mc
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/minio/mc
+          registry: ghcr.io
+          tag: latest
+          dockerfile: minio/mc/Dockerfile
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
