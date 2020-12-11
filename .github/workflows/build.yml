@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: build cgo-mingw
         uses: mr-smithers-excellent/docker-build-push@v4
@@ -50,16 +50,6 @@ jobs:
           tag: latest
           dockerfile: jenkins-dind/Dockerfile
           directory: jenkins-dind
-          username: ${{ github.actor }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: build mantisbt
-        uses: mr-smithers-excellent/docker-build-push@v4
-        with:
-          image: iwaltgen/mantisbt
-          registry: ghcr.io
-          tag: latest
-          dockerfile: mantisbt/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
