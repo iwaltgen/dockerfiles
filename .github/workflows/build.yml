@@ -6,12 +6,10 @@ on:
     - master
 
 jobs:
-  docker:
+  cgo-mingw:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
       - name: build cgo-mingw
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
@@ -22,6 +20,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+  golang-dind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: build golang-dind
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
@@ -32,6 +34,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+  jdk11-dind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: build jdk11-dind
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
@@ -42,6 +48,24 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+  minio-mc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build minio/mc
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: iwaltgen/minio/mc
+          registry: ghcr.io
+          tag: latest
+          dockerfile: minio/mc/Dockerfile
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+  jenkins-dind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: build jenkins-dind
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
@@ -53,6 +77,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+  prototool:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: build prototool
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
@@ -60,15 +88,5 @@ jobs:
           registry: ghcr.io
           tag: latest
           dockerfile: prototool/Dockerfile
-          username: ${{ github.actor }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: build minio/mc
-        uses: mr-smithers-excellent/docker-build-push@v4
-        with:
-          image: iwaltgen/minio/mc
-          registry: ghcr.io
-          tag: latest
-          dockerfile: minio/mc/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PASSWORD }}
