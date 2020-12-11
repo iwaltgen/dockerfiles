@@ -7,4 +7,4 @@
 - jdk11 docker in docker
 - jenkins docker in docker with docker-compose and minio/mc
 - prototool with PGV
-- minio/mc with tar
+- minio/mc with gzip
